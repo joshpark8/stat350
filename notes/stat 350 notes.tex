@@ -1,6 +1,6 @@
 \documentclass{report}
- 
-\usepackage[margin=1in]{geometry}
+
+% \usepackage[margin=1in]{geometry}
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -18,83 +18,236 @@
 \input{mymacros.tex}
 \input{myletterfont.tex}
 
+\newcommand{\dfn}[1]{\textbf{Definition.}\ #1 }
+\newcommand{\nt}[1]{\textbf{Note.}\ #1 }
+\newcommand{\qs}[1]{\textbf{Question.}\ #1 }
+\newcommand{\ans}[1]{\textbf{Answer.}\ #1 }
+
 \title{STAT 350 Notes}
 \author{Josh Park}
 \date{Summer 2024}
 
+\setlength\parindent{0pt}
+
 \begin{document}
 \maketitle
-\chapter{An Introduction to Statistics and Statistical Inference}
+\chapter{An Introduction to Statistics and Statistical Inference}  % 1
 
-\chapter{Summarizing Data Using Graphs}
+\chapter{Summarizing Data Using Graphs}  % 2
 
-\chapter{Numerical Summary Measures}
+\chapter{Numerical Summary Measures}  % 3
 
-	\section{Center of a distribution}
-    \subsection{Notation}
-    $x$ = random variable\\
-    $x_i$ = specific observation\\
-    $n$ = sample size
+    \section{Center of a distribution}
+        \subsection{Notation}
+        $x$ = random variable\\
+        $x_i$ = specific observation\\
+        $n$ = sample size
 
-    \subsection{Sample mean}
-    \[\bar{x}=\frac{sum\ of\ observations}{n}=\frac{1}{n}\sum x_i\]
-    R command: mean(variable)
+        \subsection{Sample mean}
+        \begin{equation}\bar{x}=\frac{sum\ of\ observations}{n}=\frac{1}{n}\sum x_i\end{equation}
+        R command: mean(variable)
 
-    \subsection{Sample median} 
-    \[\tilde{x}= centermost\ value\ in\ ordered\ dataset\]
-    R command: median(variable)
+        \subsection{Sample median} 
+        \begin{equation}\tilde{x}= centermost\ value\ in\ ordered\ dataset\end{equation}
+        R command: median(variable)
 
-	\section{Spread or variability of the data}
-	three common ways to measure spread:
-	\begin{enumerate}
-		\item sample range
-		\item sample variance (or stdev)
-		\item interquartile range (IQR)
-	\end{enumerate}
+    \section{Spread or variability of the data}
+    three common ways to measure spread:
+    \begin{enumerate}
+        \item sample range
+        \item sample variance (or stdev)
+        \item interquartile range (IQR)
+    \end{enumerate}
 
-    \subsection{Range}
-    range = $\max(x)-\min(x)$\\
-    completely depends on extreme values, so not very reliable\\
-    no R command for this
+        \subsection{Range}
+        range = $\max(x)-\min(x)$\\
+        completely depends on extreme values, so not very reliable\\
+        no R command for this
 
-    \subsection{Sample Variance (sample standard deviation)}
-      \subsubsection{Variance}
-      $variance=s^2_x=\frac{1}{n-1}\sum(x_i-\bar{x})^2$\\
-      R command: var(variable)
-      \subsubsection{Standard Deviation}
-      $standard\ deviation=s_x=\sqrt{\frac{1}{n-1}\sum(x_i-\bar{x})^2}$\\
-      R command: sd(variable)\\\\
-      if var = sd = 0, there is no spread (all data is the same)
+        \subsection{Sample Variance (sample standard deviation)}
+            \subsubsection{Variance}
+            $variance=s^2_x=\frac{1}{n-1}\sum(x_i-\bar{x})^2$\\
+            R command: var(variable)
+
+            \subsubsection{Standard Deviation}
+            $standard\ deviation=s_x=\sqrt{\frac{1}{n-1}\sum(x_i-\bar{x})^2}$\\
+            R command: sd(variable)\\\\
+            if var = sd = 0, there is no spread (all data is the same)
 
 	\subsection{Interquartile range (IQR)}
-    \subsubsection{Quartile}
-    quartile = 1/4 of the data\\
-    R command = quantile(variable)\\
-    R command for \% = quantile(variable, prob=c (p1, p2)) 
+        \subsubsection{Quartile}
+        quartile = 1/4 of the data\\
+        R command = quantile(variable)\\
+        R command for \% = quantile(variable, prob=c (p1, p2)) 
 
-    \subsubsection{IQR}
-    IQR = $Q_3-Q_1$\\
+        \subsubsection{IQR}
+        IQR = $Q_3-Q_1$\\
 
-	\section{Boxplots}
-	fast way to vizualize five-number summary\\
-	five number summary: minimum, first quartile, median, third quartile, maximum
+    \section{Boxplots}
+    fast way to vizualize five-number summary\\
+    five number summary: minimum, first quartile, median, third quartile, maximum
 
-    \subsection{Outliers}
-    IF = inner fence\\
-    OF = outer fence\\
-    subscript L = lower bound\\
-    subscript H = higher bound
-    \begin{align}
-      &IF_L=Q_1-1.5(IQR) \quad\ \ IF_H=Q_3+1.5(IQR) &\text{mild} &&\\
-      &OF_L=Q_1-3(IQR) \qquad OF_H=Q_3+3(IQR) &\text{extreme}
-    \end{align}
+        \subsection{Outliers}
+        IF = inner fence\\
+        OF = outer fence\\
+        subscript L = lower bound\\
+        subscript H = higher bound
+        \begin{align}
+        &IF_L=Q_1-1.5(IQR) \quad\ \ IF_H=Q_3+1.5(IQR) &\text{mild} &&\\
+        &OF_L=Q_1-3(IQR) \qquad OF_H=Q_3+3(IQR) &\text{extreme}
+        \end{align}
 
 	\section{Choosing Measures of Center and Spread}
 	if data is skewed, use median and IQR.\\
 	if symmetric, use mean and standard deviation.
 
 	\section{z-score}
-    \subsection{z-score}
-    the z-score of a data point $x_i$ quantifies distance from the mean value in terms of standard deviations.
-    \[z_i=\frac{x_i-\bar{x}}{s}\] 
-\end{document}
+        \subsection{z-score}
+        the z-score of a data point $x_i$ quantifies distance from the mean value in terms of standard deviations.
+        \begin{equation}z_i=\frac{x_i-\bar{x}}{s}\end{equation} 
+
+\chapter{Probability}  % 4
+    \section{Experiments, Sample Spaces, Events}  % 4.1
+        \subsection{Experiments}  % 4.1.1
+            \dfn{A random \emph{experiment} is any activity in which there are at least two possible outcomes and the result of the activity can not be predicted with absolute certainty.}
+
+            \nt{By this definition, all experiments are random.}
+
+            \dfn{An \emph{outcome} is the result of an experiment.}
+
+            \dfn{Each time the experiment is done is called a \emph{trial}.}
+        \subsection{Tree Diagrams}  % 4.1.2
+            \nt{This section is trivial}
+        \subsection{Sample Spaces}  % 4.1.3
+            \dfn{The \emph{sample space} of an experiment is the set of all possible outcomes, denoted by \emph{S} or $\Omega$.}
+        \subsection{Events}  % 4.1.4
+            \dfn{An \emph{event} is any collection of outcomes from an experiment. The sample space is one possible event.}
+
+            \dfn{A \emph{simple event} only has one outcome.}
+
+            We say that an event has occurred if the resulting outcome is containied in the event.
+        \subsection{Set Theory}  % 4.1.5
+            \dfn{The \emph{complement} of an event $A$ contains every outcome in the sample space that is not in $A$, denoted by $A'$.}
+            
+            \nt{Remainder of section is trivial.}
+
+    \section{Introduction to Probability}  % 4.2
+        \subsection{What is Probability?}  % 4.2.1
+            \subsubsection{Frequentist POV}  % 4.2.1.1
+                In the frequentist interpretation of probability, we say the probability of any outcome of any random experiment is the long term proportion of times that the outcome occurs over the total number of trials.
+                \begin{equation}P(A)=\lim_{N\to\infty}\frac{n}{N}\end{equation}
+
+            \subsubsection{Bayesian POV}  % 4.2.1.2
+                In Bayesian probability, the probabilist specifices some \emph{prior probability}, which is then updated upon collection of \emph{relevant data}.
+
+        \subsection{Properties}  % 4.2.2
+            \begin{enumerate}
+                \item Given any event $A$, it must be that $0\leq P(A) \leq 1$.
+                \item Assuming $\omega$ is an outcome of $A$, then $P(A)=\sum P(\omega)$. That is, the sum of probabilities of all outcomes in an event is equal to the probability of the event.
+                \item The probability of the sample space is 1. That is, $P(\Omega)=1$.
+                \item The proability of the empty set is 0. That is, $P(\emptyset)=0$.
+            \end{enumerate}
+
+        \subsection{Rules}  % 4.2.3
+            \textbf{Complement rule. } For any event $A$, $P(A')=1-P(A)$ \\
+            \textbf{General additional rule. } $P(A\cup B)= P(A)+P(B)-P(A\cap B)$ \\
+            \nt{When adding disjoint probabilities we need not subtract the last term, as the intersection will be empty.}
+
+    \section{Conditional Probability and Independence}  % 4.3
+        \subsection{What is conditional probability?}  % 4.3.1
+            A \emph{conditional probability} is written $P(A\vert B)$ and is read `the probability of A, given that B occurs'.
+
+        \subsection{General Multiplication Rule}  % 4.3.2
+            To calculate a union (or `or'), we can use the general additional rule. To calculate an intersection (or `and'), we can use the general multiplication rule.
+            \begin{equation}
+                P(B\vert A)=\frac{P(B\cap A)}{P(A)} \implies P(A\cap B) = P(A)P(B\vert A) \\
+            \end{equation}
+            Additionally, this rule can be applied to an arbitrary number of unions.
+            \begin{equation}
+                P(A\cap B\cap C)=P(A)P(B\vert A)P(C\vert A\cap B)
+            \end{equation}
+        \subsection{Tree Diagrams revisited}  % 4.3.3
+            \nt{Trivial}
+        \subsection{Bayes' Rule using Tree Diagrams}  % 4.3.4
+            \subsubsection{Bayes' rule}  % 4.3.4.1
+                We use Bayes' rule when calculating a conditional probability in one direction, but you only know the conditional probability in the other direction. This method is not needed when the probability of the intersection is known. \\
+                To find the probability of A given B,
+                \begin{equation}
+                    P(A\vert B)=\frac{P(A\cap B)}{P(B)}.
+                \end{equation}
+                If we don't know $P(A\cap B)$, we use the general multiplication rule to write
+                \begin{equation}
+                    P(A\vert B)=\frac{P(B\vert A)P(A)}{P(B)}.
+                \end{equation}
+                If we know what $P(B)$ is, we are done. Otherwise, we use the fact that
+                \begin{equation}
+                    P(B)=P(B\cap A)+P(B\cap A')=P(B\vert A)P(A) + P(B\vert A')P(A').
+                \end{equation}
+                This is called the \emph{Law of Total Probabilities for Two Variables}. \\
+                Subbing eqn 4.6 into eqn 4.5, we get \emph{Bayes' Rule for two variables}:
+                \begin{equation}
+                    P(A\vert B)=\frac{P(B\vert A)P(A)}{P(B\vert A)P(A)+P(B\vert A')P(A')}
+                \end{equation}
+                For more than two variables, suppose the sample space is partitioned into $k$ disjoint events, $A_1, A_2, \ldots, A_k$, none of which have a probability of 0, such that
+                \begin{equation} \sum^k_{i=1}P(A_i)=1 \end{equation}
+                Then, the \emph{Law of Total Probability} is
+                \begin{equation} \sum^k_{i=1}P(B\vert A_i)P(A_i) \end{equation}
+                and Bayes' rule is
+                \begin{equation} P(A_j\vert B)=\frac{P(B\vert A_j)P(A_j)}{\sum^k_{i=1}P(B\vert A_i)P(A_i)} \end{equation}
+            \subsubsection{Bayesian Statistics}  % 4.3.3.1
+                To summarize Bayesian Statistics, we first begin with a prior probability $A$. Then, given additional context, $B$, we can improve our prediction of the probability of $A$ by calculating $P(A\vert B)$. This is called the \emph{posterior} probability. In the example from the book, after someone tested positive for the disease, the probability that they have the disease increased from 0.01 to 0.165.
+        \subsection{Independence}  % 4.3.5
+            \dfn{Two events are \emph{independent} if knowing the outcome of one does not affect the outcome of the other. Mathematically, we write}
+            \begin{equation} P(A\vert B)=P(A) \end{equation}
+            \begin{equation} P(B\vert A)=P(B) \end{equation}
+            or
+            \begin{equation} P(A\cap B)=P(A)P(B\vert A)\implies P(A\cap B)=P(A)\times P(B) \end{equation}
+            \subsubsection{Disjoint vs Independence}  % 4.3.5.1
+                \dfn{Two events are \emph{disjoint} if they can not possibly occur at the same time.} \\
+                \dfn{Two events are \emph{independent} if the outcome of one does not impact the other.}
+                \begin{enumerate}
+                    \item Draw a card. A: card is a heart, B: card is not a heart
+                    \subitem disjoint; not independent
+                    \item Toss 2 coins. A: first coin is head, B: second coin is head
+                    \subitem not disjoint; independent
+                    \item Roll 2 4-sided die. A: first die is 2, B: sum of die is 3
+                    \subitem not disjoint; not independent
+                \end{enumerate}
+
+\chapter{Random Variables and Discrete Probability Distributions}  % 5
+    \section{Random Variables}  % 5.1
+        \subsection{Definition}  % 5.1.1
+        \subsection{Discrete and Continuous Random Variables}  % 5.1.2
+        \subsection{Probability Distributions - pmf}  % 5.1.3
+        \subsection{Properties}  % 5.1.4
+        \subsection{Probability}  % 5.1.5
+
+    \section{Expected Value and Variance}  % 5.2
+        \subsection{Expected Value}  % 5.2.1
+        \subsection{Rules of Expected Values}  % 5.2.2
+        \subsection{Variance and Standard Deviation}  % 5.2.3
+        \subsection{Rules of Variance}  % 5.2.4
+
+    \section{Cumulative Distribution Function}  % 5.3
+
+    \section{Binomial Random Variable}  % 5.4
+        \subsection{Binomial Experiment}  % 5.4.1
+        \subsection{Binomial Probabilities}  % 5.4.2
+        \subsection{Mean and Variance}  % 5.4.3
+
+    \section{Poisson Random Variables}  % 5.5
+        \subsection{Poisson Experiment}  % 5.5.1
+        \subsection{Poisson Probabilities}  % 5.5.2
+        \subsection{Mean and Variance}  % 5.5.3
+
+\chapter{Continuous Probability Distributions}  % 6
+\chapter{Sampling Distributions}  % 7 
+\chapter{Experimental Design}  % 8
+\chapter{Confidence Intervals based on a Single Sample}  % 9
+\chapter{Hypothesis Tests Based on a Single Sample}  % 10
+\chapter{CI and HT Based on Two Samples or Treatments}  % 11
+\chapter{The Analysis Of Variance (ANOVA)}  % 12
+\chapter{Correlation and Linear Regression: Simple Linear Regression}  % 13a
+\chapter{Correlation and Linear Regression: Correlation, Diagnostics, Inference}  % 13b
+
+    \end{document}
