@@ -28,9 +28,10 @@ Pmfs are valid probability distributions, so they follow the axioms of probabili
           \[E(X+Y)=E(X)+E(Y)\]
     \item If $X$ is a random variable and $g$ is a function of $X$, then
           \[E(g(X))=\sum_{i=1}^m g(x_i)p_i\]
+          \subitem \nt{$g(x)$ does not have to be linear}
 \end{enumerate}
 
-\subsection{Variance and Standard Deviation}  % 5.2.3
+\subsection{Expectation, Variance, and Standard Deviation for a Discrete Variable}  % 5.2.3
 Recall sample variance measures spread by taking the average of the squared differences between observations and their center
 \begin{equation}
     s^2=\frac{\sum_{i=1}^{n}{(x_i-\bar{x})}^2}{n-1}
@@ -53,12 +54,29 @@ Then, the standard deviation is the sqaure root of the variance
 \end{equation}
 
 \subsection{Rules of Variance}  % 5.2.4
+\begin{enumerate}
+    \item if $X$ is a random variable and $a, b\in\RR$ are fixed then 
+    \begin{equation}
+        Var(a+bX)=b^2 Var(X)
+    \end{equation} 
+    \nt{the variance does not rely on where hte center of the distribution is so a is not on RHS}
+    \item if $X$ and $Y$ are independent random variables, 
+    \begin{equation}
+        Var(X+Y)=Var(X)+Var(Y)\quad and\quad Var(X-Y)=Var(X)+Var(Y)
+    \end{equation}
+    addition rule for variances \\
+    can be added for both addition and subtraction \\
+    
+\end{enumerate}
 
 \section{Cumulative Distribution Function}  % 5.3
+skip
 
 \section{Binomial Random Variable}  % 5.4
 \subsection{Binomial Experiment}  % 5.4.1
-\subsection{Binomial Probabilities}  % 5.4.2
+BINS -- Binary; Independent; Number of trials; constant probability of Success $P(S)=p$
+\subsection{Binomial Random Variables}  % 5.4.2
+
 \subsection{Mean and Variance}  % 5.4.3
 
 \section{Poisson Random Variables}  % 5.5

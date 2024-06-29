@@ -104,16 +104,11 @@ and Bayes' rule is
 To summarize Bayesian Statistics, we first begin with a prior probability $A$. Then, given additional context, $B$, we can improve our prediction of the probability of $A$ by calculating $P(A\vert B)$. This is called the \emph{posterior} probability. In the example from the book, after someone tested positive for the disease, the probability that they have the disease increased from 0.01 to 0.165.
 \subsection{Independence}  % 4.3.5
 \dfn{Two events are \emph{independent} if knowing the outcome of one does not affect the outcome of the other. Mathematically, we write}
-\begin{equation}
-    P(A\vert B)=P(A)
-\end{equation}
-\begin{equation}
-    P(B\vert A)=P(B)
-\end{equation}
-or
-\begin{equation}
-    P(A\cap B)=P(A)P(B\vert A)\implies P(A\cap B)=P(A)\times P(B)
-\end{equation}
+\begin{align}
+    P(A\vert B)&=P(A) \\
+    P(B\vert A)&=P(B) \\
+    P(A\cap B)&=P(A)P(B\vert A)\implies P(A\cap B)=P(A)\times P(B)
+\end{align}
 \subsubsection{Disjoint vs Independence}  % 4.3.5.1
 \dfn{Two events are \emph{disjoint} if they can not possibly occur at the same time.} \\
 \dfn{Two events are \emph{independent} if the outcome of one does not impact the other.}

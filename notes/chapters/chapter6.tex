@@ -10,9 +10,9 @@
 \end{enumerate}
 
 \subsection{Density curves and probabilities (pdf)}  % 6.1.1
-Define the pdf $f(x)$ such that $\int_\infty^\infty f(x)\mathrm{d}x=1$. \\
+Define the pdf $f(x)$ such that $\Dint f(x)\mathrm{d}x=1$. \\
 Then, the probability that $a < X < b$ is
-\[P(a<X<b)=\int_a^bf(x)\mathrm{d}x\]
+\[P(a<X<b)=\dint{a}{b}f(x)\mathrm{d}x\]
 \nt{When $X=a$, $\int_a^a f(x)$d$x=0$, so $P(X\leq a)=P(X<a)$}
 
 \subsection{Properties}  % 6.1.2
@@ -66,12 +66,37 @@ Note that this integral is the same as the cdf. Thus if the cdf is already known
 \end{equation}
 
 \section{Normal Distribution}  % 6.2
-\subsection{Distribution}  % 6.2.1
-\subsection{Standardization}  % 6.2.2
-\subsection{Using the z-table}  % 6.2.3
-\subsection{Probabilities}  % 6.2.4
-\subsection{Percentiles}  % 6.2.5
+\begin{equation}
+    f(x)=\frac{1}{\sigma \sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}} \mathrm{ where } -\infty<\mu<\infty
+\end{equation}
+don't need to know function
 
+is defined as long as we know the variance $\sigma^2$ and the mean $\mu$ \\
+thus $X~N*(\mu, \sigma^2)$
+\subsection{Normal Distribution}  % 6.2.1
+shape: symmetric; bell shaped; unimodal \\
+variance $\sigma^2$ is spread; mean is also median since symmetric \\
+curve is concave down when $x$ is $\mu\pm\sigma$ otherwise concave down
+
+\subsection{Standardization}  % 6.2.2
+empirical rule - 68\% of data within 1 stdev; 95 within 2; 99.7 within 3 \\
+standard normal distribution: $\mu=0; \sigma=1$
+\dfn{$z=f(z)$}
+probability of certain outcome $x$ $=$ cdf of $z$; values are in z table \\
+
+\subsection{Using the z-table}  % 6.2.3
+\begin{equation}
+    P(-2.77<Z<1.54)=P(Z<1.54)-P(Z<-2.77)=0.9382 - 0.0028 = 0.9354
+\end{equation}
+    
+\subsection{Probabilities}  % 6.2.4
+normalize any given distribution to be standard normal with
+\begin{equation}
+    z=\frac{x-\mu}{\sigma}
+\end{equation}
+then $z$ is z-score; tells how many standard deviations $x$ is from the mean $\mu$
+\subsection{Percentiles}  % 6.2.5
+89th percentile = $P(Z<b)=0.89$. must find corresponding b value in 
 \section{Determining if a distribution is normal}  % 6.3
 \subsection{Normal probability plots}  % 6.3.1
 
