@@ -1,0 +1,83 @@
+\chapter{Continuous Probability Distributions}  % 6
+
+\section{Probability Distribution for Continuous Random Variables - General}  % 6.1
+    \subsection*{Objectives}
+        \begin{enumerate}
+            \item Describe the basis of the probability density function (pdf).
+            \item Use the probability density function (pdf) and cumulative distribution function (cdf) of a continuous random variable to calculate probabilities and percentiles (median) of events.
+            \item Be able to use a pdf to find the mean of a continuous random variable.
+            \item Be able to use a pdf to find the variance of a continuous random variable.
+        \end{enumerate}
+
+    \subsection{Density curves and probabilities (pdf)}  % 6.1.1
+        Define the pdf $f(x)$ such that $\int_\infty^\infty f(x)\mathrm{d}x=1$. \\
+        Then, the probability that $a < X < b$ is
+        \[P(a<X<b)=\int_a^bf(x)\mathrm{d}x\]
+        \nt{When $X=a$, $\int_a^a f(x)$d$x=0$, so $P(X\leq a)=P(X<a)$}
+
+    \subsection{Properties}  % 6.1.2
+        A valid density curve must have the two following properties:
+        \begin{enumerate}
+            \item $f(x)\geq 0$
+            \item $\int_{-\infty}^\infty f(x)$d$x=1$
+        \end{enumerate}
+        \nt{Notice that $f(x)\leq 1$ need not be true; consider the function $g(x)=4$ on the interval [0, 0.25].}\\
+        \nt{In the case of $g(x)$, the bounds on the integral for property 2 must be adjusted}
+
+    \subsection{Mean and Variance}  % 6.1.3
+        \nt{The rules for the means and variances are the same for both discrete and continouous random variables; the only difference is how the values are computed.}
+        \begin{align}
+            &\text{Discrete:}    & E(X)&=\mu_X=\sum xp(x) & E(g(X))&=\sum g(x)p(x)\\
+            &\text{Continuous:}  & E(X)&=\mu_X=\int_{-\infty}^{\infty} xp(x)\text{d}x & E(g(X))&=\int_{-\infty}^{\infty}g(x)p(x)\text{d}x
+        \end{align}
+        Recall the formula for variance of discrete random variables
+        \begin{align}
+            \begin{split}
+                Var(X)&=E[{(X-\mu_X)}^2]=\sum{(x_i-\mu_X)}^2\cdot p_i \\
+                    &=E[{(X-\mu_X)}^2]=\int_{-\infty}^\infty{(x_i-\mu_X)}^2\cdot p_i
+            \end{split}\\
+            Var(X)&=E(X^2)-(E(X))^2 \\
+            \sigma_X&=\sqrt{Var(X)}
+        \end{align}
+        Equation 6.4 is recommended as it is computationally much easier to evaluate.
+
+    \subsection{Cumulative Distribution Function (cdf)}  % 6.1.4
+        The cumulative distribution function (cdf) is the probability that the random variable will be less than or equal to some value. It is written $F(X)$ and the formula is
+        \begin{equation}
+            F(x)=P(X\leq x)=\int_{-\infty}^{x} f(x)ds
+        \end{equation}
+        \nt{The variable of integration is changed to be some dummy variable $s$, as the bounds of a definite integral can not be a function of the variable of integration.}\\
+        To recap, we now have
+        \begin{align}
+            p(x)&= \text{probability mass function} \\
+            f(x)&= \text{probability density function} \\
+            F(x)&= \text{cumulative distribution function}
+        \end{align}
+
+    \subsection{Percentiles}  % 6.1.5
+        For continuous distributions, the percentile for a specific value can be computed with the integral
+        \begin{equation}
+            F(x)=P(X\leq x)=\int_{-\infty}^{x} f(x)ds
+        \end{equation}
+
+\section{Normal Distribution}  % 6.2
+    \subsection{Distribution}  % 6.2.1
+    \subsection{Standardization}  % 6.2.2
+    \subsection{Using the z-table}  % 6.2.3
+    \subsection{Probabilities}  % 6.2.4
+    \subsection{Percentiles}  % 6.2.5
+
+\section{Determining if a distribution is normal}  % 6.3
+    \subsection{Normal probability plots}  % 6.3.1
+
+\section{Uniform Distribution}  % 6.4
+    \subsection{Distribution}  % 6.4.1
+
+\section{Exponential Distribution}  % 6.5
+    \subsection{Distribution}  % 6.5.1
+
+\section{Other continuous distributions (Optional)}  % 6.6
+    \subsection{Gamma Distribution}  % 6.6.1
+    \subsection{Beta Distribution}  % 6.6.2
+    \subsection{Weibull Distribution}  % 6.6.3
+    \subsection{Lognormal Distribution}  % 6.6.4

@@ -1,0 +1,70 @@
+\chapter{Numerical Summary Measures}  % 3
+
+    \section{Center of a distribution}
+        \subsection{Notation}
+        $x$ = random variable\\
+        $x_i$ = specific observation\\
+        $n$ = sample size
+
+        \subsection{Sample mean}
+        \begin{equation}\bar{x}=\frac{sum\ of\ observations}{n}=\frac{1}{n}\sum x_i\end{equation}
+        R command: mean(variable)
+
+        \subsection{Sample median}
+        \begin{equation}\tilde{x}= centermost\ value\ in\ ordered\ dataset\end{equation}
+        R command: median(variable)
+
+    \section{Spread or variability of the data}
+    three common ways to measure spread:
+    \begin{enumerate}
+        \item sample range
+        \item sample variance (or stdev)
+        \item interquartile range (IQR)
+    \end{enumerate}
+
+        \subsection{Range}
+        range = $\max(x)-\min(x)$\\
+        completely depends on extreme values, so not very reliable\\
+        no R command for this
+
+        \subsection{Sample Variance (sample standard deviation)}
+            \subsubsection{Variance}
+            $variance=s^2_x=\frac{1}{n-1}\sum(x_i-\bar{x})^2$\\
+            R command: var(variable)
+
+            \subsubsection{Standard Deviation}
+            $standard\ deviation=s_x=\sqrt{\frac{1}{n-1}\sum(x_i-\bar{x})^2}$\\
+            R command: sd(variable)\\\\
+            if var = sd = 0, there is no spread (all data is the same)
+
+	\subsection{Interquartile range (IQR)}
+        \subsubsection{Quartile}
+        quartile = 1/4 of the data\\
+        R command = quantile(variable)\\
+        R command for \% = quantile(variable, prob=c (p1, p2)) 
+
+        \subsubsection{IQR}
+        IQR = $Q_3-Q_1$\\
+
+    \section{Boxplots}
+    fast way to vizualize five-number summary\\
+    five number summary: minimum, first quartile, median, third quartile, maximum
+
+        \subsection{Outliers}
+        IF = inner fence\\
+        OF = outer fence\\
+        subscript L = lower bound\\
+        subscript H = higher bound
+        \begin{align}
+        &IF_L=Q_1-1.5(IQR) \quad\ \ IF_H=Q_3+1.5(IQR) &\text{mild} &&\\
+        &OF_L=Q_1-3(IQR) \qquad OF_H=Q_3+3(IQR) &\text{extreme}
+        \end{align}
+
+	\section{Choosing Measures of Center and Spread}
+	if data is skewed, use median and IQR.\\
+	if symmetric, use mean and standard deviation.
+
+	\section{z-score}
+        \subsection{z-score}
+        the z-score of a data point $x_i$ quantifies distance from the mean value in terms of standard deviations.
+        \begin{equation}z_i=\frac{x_i-\bar{x}}{s}\end{equation} 
