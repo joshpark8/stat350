@@ -49,8 +49,8 @@ In Bayesian probability, the probabilist specifies some \emph{prior probability}
 \end{enumerate}
 
 \subsection{Rules}  % 4.2.3
-\textbf{Complement rule. } For any event $A$, $P(A')=1-P(A)$ \\
-\textbf{General additional rule. } $P(A\cup B)= P(A)+P(B)-P(A\cap B)$ \\
+\dfn{The \IT{complement rule} says that for any event $A$, $P(A')=1-P(A)$} \\
+\dfn{The \IT{general additional rule } says that $P(A\cup B)= P(A)+P(B)-P(A\cap B)$} \\
 \nt{When adding disjoint probabilities we need not subtract the last term, as the intersection will be empty.}
 
 \section{Conditional Probability and Independence}  % 4.3
@@ -58,7 +58,7 @@ In Bayesian probability, the probabilist specifies some \emph{prior probability}
 A \emph{conditional probability} is written $P(A\vert B)$ and is read `the probability of A, given that B occurs'.
 
 \subsection{General Multiplication Rule}  % 4.3.2
-To calculate a union (or `or'), we can use the general additional rule. To calculate an intersection (or `and'), we can use the general multiplication rule.
+To calculate a union (or), we can use the general additional rule. To calculate an intersection (and), we can use the general multiplication rule.
 \begin{equation}
     P(B\vert A)=\frac{P(B\cap A)}{P(A)} \implies P(A\cap B) = P(A)P(B\vert A) \\
 \end{equation}
