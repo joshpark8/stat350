@@ -55,9 +55,14 @@
         \end{align}
 
     \subsection{Percentiles}  % 6.1.5
-        For continuous distributions, the percentile for a specific value can be computed with the integral
+        For continuous distributions, percentiles are much simpler to compute. Given that $0<p<1$, the $100p$th percentile for a value $x$ can be computed with the integral
         \begin{equation}
-            F(x)=P(X\leq x)=\int_{-\infty}^{x} f(x)ds
+            p=\int_{-\infty}^{x} f(x)ds
+        \end{equation}
+        Note that this integral is the same as the cdf. Thus if the cdf is already known, we can simply find when $F(x)=p$. Again, the $100p^{\text{th}}$ percentile is when $100p$ percent of the data is less than $p$, and the rest is above\\
+        \nt{The median occurs when $p=0.5$. Hence,}
+        \begin{equation}
+            p=0.5=\int_{-\infty}^{\mu'} f(x)dx=F(\mu')\text{ where } \mu'=\tilde{\mu}
         \end{equation}
 
 \section{Normal Distribution}  % 6.2
