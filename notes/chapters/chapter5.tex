@@ -55,31 +55,77 @@ Then, the standard deviation is the sqaure root of the variance
 
 \subsection{Rules of Variance}  % 5.2.4
 \begin{enumerate}
-    \item if $X$ is a random variable and $a, b\in\RR$ are fixed then 
+    \item if $X$ is a random variable and $a, b\in\RR$ are fixed then
     \begin{equation}
         Var(a+bX)=b^2 Var(X)
-    \end{equation} 
+    \end{equation}
     \nt{the variance does not rely on where hte center of the distribution is so a is not on RHS}
-    \item if $X$ and $Y$ are independent random variables, 
+    \item if $X$ and $Y$ are independent random variables,
     \begin{equation}
         Var(X+Y)=Var(X)+Var(Y)\quad and\quad Var(X-Y)=Var(X)+Var(Y)
     \end{equation}
     addition rule for variances \\
     can be added for both addition and subtraction \\
-    
 \end{enumerate}
 
 \section{Cumulative Distribution Function}  % 5.3
 skip
 
 \section{Binomial Random Variable}  % 5.4
-\subsection{Binomial Experiment}  % 5.4.1
-BINS -- Binary; Independent; Number of trials; constant probability of Success $P(S)=p$
+\subsection{Binomial Experiment (BInS)}  % 5.4.1
+Binary - are there only 2 options? \\
+Independence - is each trial independent? \\
+Number - is the number of trials a contant? \\
+Success - is the probability of success a constant?
 \subsection{Binomial Random Variables}  % 5.4.2
+\dfn{The \ital{binomial random variable} $X$ must come from a binomial experiment and maps every outcome to some $k\in\RR$. $X$ has parameters $n$ (num trials) and $p$ (prob success).}
 
-\subsection{Mean and Variance}  % 5.4.3
+\subsection{PMF of Binomial Random }  % 5.4.3
+If $X$ is a binomial random bariable with n trials and probility of a success p, then
+\begin{equation}
+    P(X=x)=\binom{n}{x}p^x(1-p)^{n-x},\ x=0,1,\ldots, n
+\end{equation}
+
+\subsection{Shapes of Binomial Distributions}
+skewedness of a binom random variable depends on $p$. \\
+$p<0.5$; distribution is skewed right \\
+$p=0.5$; distribution is symmetric  \\
+$0.5<p$; distribution is skewed left
+
+
+\subsection{Binomial Distribution: Mean and Standard Deviation}
+If $X\sim B(n,p)$, then
+\begin{align}
+    \EE(X)&=\mu_X-=np\\
+    Var(X)&=np(1-p)\\
+    \sigma_X&=\sqrt{np(1-p)}
+\end{align}
 
 \section{Poisson Random Variables}  % 5.5
+\dfn{the \ital{poisson random variable} is used to count the number of events that happen during some interval or in some area.}
+
+\ex{\# of people who enter the PMU per day; \# of radioactive particles emitted from some material in 1 minute}
+
 \subsection{Poisson Experiment}  % 5.5.1
-\subsection{Poisson Probabilities}  % 5.5.2
+The poisson distribution also has an experiment, but it is more complex than  binomial
+\begin{enumerate}
+    \item the probability that an event occurs in some given interval is equal for any unit of equal size; the \ital{rate} is proportional to the size
+    \item the number of events that occur within an interval i s independent of the number that occur in any other non-overlapping interval
+    \item the probaiblity that more than one event occurs within a unit of measure is negligible for small units
+\end{enumerate}
+
+\subsection{Poisson Distribution}  % 5.5.2
+only one param: $\lambda$ \\
+Read $X Poisson(\lambda)$ as ``$X$ is distributed as a Poisson random variable with parameter $\lambda$''
+\begin{equation}
+    p(x)=P(X=x)=\frac{e^{-\lambda}\lambda^x}{x!},\; x\in\NN_0
+\end{equation}
+
 \subsection{Mean and Variance}  % 5.5.3
+The mean and variance of the Poisson random variable are the same as $\lambda$. So,
+\begin{align}
+    \mu_X =\sigma\sq\\
+    \sigma_X=\sqrt\lambda
+\end{align}
+$\lambda$ used instead of $\mu$ to maintain consistency with exponential distribution.\\
+If units for \(\lambda\) were different than the units given in the problem, the problem can still be oslved due to the independence property (2) ofthe Poisson experiment.

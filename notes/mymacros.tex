@@ -1,12 +1,17 @@
 % General
-\newcommand*{\IT}[1]{\emph{#1}}
-\newcommand*{\BD}[1]{\textbf{#1}}
-\newcommand*{\UL}[1]{\underline{#1}}
-\newcommand*{\llist}[4]{\ensuremath{#1_#2, #1_#3, \ldots, #1_#4}}
+\newcommand*{\sq}{^2}
+\newcommand*{\lt}{\langle}
+\newcommand*{\rt}{\rangle}
+\newcommand*{\ital}[1]{\emph{#1}}
+\newcommand*{\bd}[1]{\textbf{#1}}
+\newcommand*{\ul}[1]{\underline{#1}}
 
 % For STAT 350 "Introduction to Statistics"
 \newcommand*{\dint}[2]{\int_{#1}^{#2}}
 \newcommand*{\Dint}{\int_{-\infty}^{\infty}}
+\newcommand*{\xbar}{\bar{x}}
+
+
 \newcommand{\dfn}[1]{
     \vspace*{.5em}
     \noindent\textbf{Definition.} \hspace*{.25em}%
@@ -31,3 +36,44 @@
     }
     \vspace*{.5em}
 }
+
+% idk if or when i needed this tbh
+\newcommand{\Longupdownarrow}{\Big\Updownarrow}
+
+% For MA375 "Introduction to Discrete Mathematics"
+\newcommand{\Mod}[1]{\ \mathrm{mod}\ #1}
+
+% For MA341 "Foundations of Analysis"
+\newcommand{\abs}[1]{\ensuremath{\lt\vert #1 \rt\vert}}
+
+% For MA35301 "Linear Algebra II"
+\newcommand{\set}[1]{\lt\{ #1 \rt\}}  % Set brackets
+
+\newcommand{\sperp}{\ensuremath{S^\perp}}  % Set brackets
+
+\newcommand{\vu}{\vec{u}}  % u vector
+\newcommand{\vv}{\vec{v}}  % v vector
+\newcommand{\vw}{\vec{w}}  % w vector
+
+\newcommand{\ze}{\ul{0}}   % Zero element of vector space
+\renewcommand{\u}{\ul{u}}  % u element of vector space
+\renewcommand{\v}{\ul{v}}  % u element of vector space
+\newcommand{\w}{\ul{w}}    % w element of vector space
+\newcommand{\x}{\ul{x}}    % x element of vector space
+\newcommand{\y}{\ul{y}}    % y element of vector space
+\newcommand{\z}{\ul{z}}    % z element of vector space
+
+\newcommand{\col}[2]{\begin{bmatrix} #1 \\ #2 \end{bmatrix}}  % Column vector
+\newcommand{\coll}[3]{\begin{bmatrix} #1 \\ #2 \\ #3 \end{bmatrix}}  % Column vector
+\newcommand{\colll}[4]{\begin{bmatrix} #1 \\ #2 \\ #3 \\ #4 \end{bmatrix}}  % Column vector
+
+\newcommand{\llist}[3]{{#1}_{#2}, \ldots, {#1}_{#3}}  % list
+\newcommand{\llistt}[3]{T({#1}_{#2}), \ldots, T({#1}_{#3})}  % List of lin transfs
+
+\newcommand{\lincomb}[4]{{#1}_{#3}{#2}_{#3} + \cdots + {#1}_{#4}{#2}_{#4}}  % Linear combination
+\newcommand{\lincombt}[3]{{#1}_1T({#2}_1) + \cdots + {#1}_{#3}T({#2}_{#3})}  % Linear combination of lin transfs
+
+\newcommand{\inner}[2]{\ensuremath{\lt\langle #1, #2 \rt\rangle}}
+
+\newcommand{\len}[1]{\ensuremath{\lt\vert\lt\vert #1 \rt\vert\rt\vert}}
+

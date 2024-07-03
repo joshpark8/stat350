@@ -11,8 +11,8 @@
 
 \subsection{Density curves and probabilities (pdf)}  % 6.1.1
 Define the pdf $f(x)$ such that $\Dint f(x)\mathrm{d}x=1$. \\
-Then, the probability that $a < X < b$ is
-\[P(a<X<b)=\dint{a}{b}f(x)\mathrm{d}x\]
+Then, the probability that $a < X< b$ is
+\begin{equation}P(a<X<b)=\dint{a}{b}f(x)\mathrm{d}x\end{equation}
 \nt{When $X=a$, $\int_a^a f(x)$d$x=0$, so $P(X\leq a)=P(X<a)$}
 
 \subsection{Properties}  % 6.1.2
@@ -44,7 +44,7 @@ Equation 6.4 is recommended as it is computationally much easier to evaluate.
 \subsection{Cumulative Distribution Function (cdf)}  % 6.1.4
 The cumulative distribution function (cdf) is the probability that the random variable will be less than or equal to some value. It is written $F(X)$ and the formula is
 \begin{equation}
-    F(x)=P(X\leq x)=\int_{-\infty}^{x} f(x)ds
+    F(x)=P(X\leq x)=\int_{-\infty}^{s} f(x)ds
 \end{equation}
 \nt{The variable of integration is changed to be some dummy variable $s$, as the bounds of a definite integral can not be a function of the variable of integration.}\\
 To recap, we now have
@@ -69,10 +69,9 @@ Note that this integral is the same as the cdf. Thus if the cdf is already known
 \begin{equation}
     f(x)=\frac{1}{\sigma \sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}} \mathrm{ where } -\infty<\mu<\infty
 \end{equation}
-don't need to know function
-
-is defined as long as we know the variance $\sigma^2$ and the mean $\mu$ \\
-thus $X~N*(\mu, \sigma^2)$
+don't need to know closed form \\
+defined as long as we know the variance $\sigma^2$ and the mean $\mu$ \\
+thus $X\sim N(\mu, \sigma^2)$
 \subsection{Normal Distribution}  % 6.2.1
 shape: symmetric; bell shaped; unimodal \\
 variance $\sigma^2$ is spread; mean is also median since symmetric \\
@@ -80,15 +79,15 @@ curve is concave down when $x$ is $\mu\pm\sigma$ otherwise concave down
 
 \subsection{Standardization}  % 6.2.2
 empirical rule - 68\% of data within 1 stdev; 95 within 2; 99.7 within 3 \\
-standard normal distribution: $\mu=0; \sigma=1$
-\dfn{$z=f(z)$}
+standard normal distribution: $\mu=0; \sigma=1$\\
+\dfn{$z=f(z)$}\\
 probability of certain outcome $x$ $=$ cdf of $z$; values are in z table \\
 
 \subsection{Using the z-table}  % 6.2.3
 \begin{equation}
     P(-2.77<Z<1.54)=P(Z<1.54)-P(Z<-2.77)=0.9382 - 0.0028 = 0.9354
 \end{equation}
-    
+
 \subsection{Probabilities}  % 6.2.4
 normalize any given distribution to be standard normal with
 \begin{equation}
@@ -96,18 +95,86 @@ normalize any given distribution to be standard normal with
 \end{equation}
 then $z$ is z-score; tells how many standard deviations $x$ is from the mean $\mu$
 \subsection{Percentiles}  % 6.2.5
-89th percentile = $P(Z<b)=0.89$. must find corresponding b value in 
-\section{Determining if a distribution is normal}  % 6.3
+\ex{89th percentile = $P(Z<b)=0.89$} \\
+must find corresponding value in z-table (don't interpolate; use printed value) \\
+now un-normalize z score by
+\begin{equation}
+    z=\frac{x-\mu}{\sigma}  \implies x=\mu+\sigma z
+\end{equation}
+
+\subsubsection{Symmetry}
+How do we find $P(\mu-b\leq X\leq \mu+b)$ (symmetry around the mean)?\\
+Let $P(\mu-b\leq X<\leq \mu+b)=C$. Then each little ``wedge'' on each end is \(\frac{1-c}{2}\)\\
+Then upper bound of $C$ is \(P(X<\mu+b)=1-\frac{1-C}{2}\); and lower bound is $\frac{1-C}{2}$
+
+\section{Determining Normality}  % 6.3
+
+
 \subsection{Normal probability plots}  % 6.3.1
+Ways to check normality
+\begin{enumerate}
+    \item graph and compare
+    \item backward empirical rule to see if proportions match
+    \item ratio of IQR:s shoudl be about 1.4
+    \item normal probability plot (QQ) (best method)
+    \item inference
+\end{enumerate}
+
+\subsection{Conceptual Procedure for Normal Probability Plots}  % 6.3.2
+idea: if data fits distribution, the percentiles should correspond with the percentiles of that distribution
+\begin{enumerate}
+    \item arrange from smallest to largest
+    \item record corresponding percentiles (complicated)
+    \item find z value
+    \item plot original data point vs new z point
+\end{enumerate}
+If data is normal, we can use \(x\) and \(z\) to obtain the mean and standard
 
 \section{Uniform Distribution}  % 6.4
-\subsection{Distribution}  % 6.4.1
+continuous distribution; all points are distributed evenly between $a, b$. \\
+density curve:
+\begin{equation}
+    f(x) = \begin{cases}
+           \frac{1}{b-a} & a<x<b\\
+           0 & else
+        \end{cases}
+\end{equation}
+Mean is\begin{equation}
+    \EE(X)=\frac{a+b}{2}
+\end{equation}
+standard deviation \begin{equation}
+    \sigma_X=\frac{b-a}{\sqrt{12}}
+\end{equation}
+\ex{200 boxes an hour; distribution is uniform from 18.2 to 20.4 (nearest tenth)}
+\begin{enumerate}
+    \item what is the probability that the package weighs less than 20 lbs? \begin{equation}
+        P(X<20)=\int_{18.2}^{20}\frac{1}{20.4-18.2}dx=\int_{18.2}^{20}\frac{1}{2.2}dx=0.818
+    \end{equation}
+    \item what are the mean and standard deviation of the weights?\begin{equation}
+        \EE(X)=\frac{18.2+20.4}{2}=19.3
+    \end{equation}\begin{equation}
+        \sigma_X=\frac{20.4-18.2}{\sqrt{12}}=0.635
+    \end{equation}
+\end{enumerate}
 
 \section{Exponential Distribution}  % 6.5
-\subsection{Distribution}  % 6.5.1
-
-\section{Other continuous distributions (Optional)}  % 6.6
-\subsection{Gamma Distribution}  % 6.6.1
-\subsection{Beta Distribution}  % 6.6.2
-\subsection{Weibull Distribution}  % 6.6.3
-\subsection{Lognormal Distribution}  % 6.6.4
+exponential distribution pdf:\begin{equation}
+    f(x)=\begin{cases}
+        \lambda e^{-\lambda x} & x \geq 0\\
+        0 & else
+    \end{cases}
+\end{equation}
+cdf:\begin{equation}
+    F(x)=\begin{cases}
+        0 & x<0 \\
+        1-e^{\lambda x} & x\geq 0
+    \end{cases}
+\end{equation}
+\begin{equation}
+    E(X)=\frac{1}{\lambda} \qquad\qquad Var(X) = \frac{1}{\lambda\sq} \qquad\qquad \sigma_X =\frac{1}{\lambda}
+\end{equation}
+% \section{Other continuous distributions (Optional)}  % 6.6
+% \subsection{Gamma Distribution}  % 6.6.1
+% \subsection{Beta Distribution}  % 6.6.2
+% \subsection{Weibull Distribution}  % 6.6.3
+% \subsection{Lognormal Distribution}  % 6.6.4
