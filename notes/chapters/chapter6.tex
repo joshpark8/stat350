@@ -33,13 +33,13 @@ A valid density curve must have the two following properties:
 Recall the formula for variance of discrete random variables
 \begin{align}
     \begin{split}
-        Var(X) & =E[{(X-\mu_X)}^2]=\sum{(x_i-\mu_X)}^2\cdot p_i                  \\
+        Var(X) & =E[{(X-\mu_X)}^2]=\sum{(x_i-\mu_X)}^2\cdot p_i \\
                & =E[{(X-\mu_X)}^2]=\int_{-\infty}^\infty{(x_i-\mu_X)}^2\cdot p_i
     \end{split} \\
-    Var(X)   & =E(X^2)-(E(X))^2                                              \\
+    Var(X)   & =E(X^2)-(E(X))^2 \label{seqn} \\
     \sigma_X & =\sqrt{Var(X)}
 \end{align}
-Equation 6.4 is recommended as it is computationally much easier to evaluate.
+Equation \ref*{seqn} is recommended as it is computationally much easier to evaluate.
 
 \subsection{Cumulative Distribution Function (cdf)}  % 6.1.4
 The cumulative distribution function (cdf) is the probability that the random variable will be less than or equal to some value. It is written $F(X)$ and the formula is
