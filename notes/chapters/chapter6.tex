@@ -13,7 +13,7 @@
 Define the pdf $f(x)$ such that $\Dint f(x)\mathrm{d}x=1$. \\
 Then, the probability that $a < X< b$ is
 \begin{equation}P(a<X<b)=\dint{a}{b}f(x)\mathrm{d}x\end{equation}
-\nt{When $X=a$, $\int_a^a f(x)$d$x=0$, so $P(X\leq a)=P(X<a)$}
+\nt{}{When $X=a$, $\int_a^a f(x)$d$x=0$, so $P(X\leq a)=P(X<a)$}
 
 \subsection{Properties}  % 6.1.2
 A valid density curve must have the two following properties:
@@ -21,11 +21,11 @@ A valid density curve must have the two following properties:
     \item $f(x)\geq 0$
     \item $\int_{-\infty}^\infty f(x)$d$x=1$
 \end{enumerate}
-\nt{Notice that $f(x)\leq 1$ need not be true; consider the function $g(x)=4$ on the interval [0, 0.25].}\\
-\nt{In the case of $g(x)$, the bounds on the integral for property 2 must be adjusted}
+\nt{}{Notice that $f(x)\leq 1$ need not be true; consider the function $g(x)=4$ on the interval [0, 0.25].}
+\nt{}{In the case of $g(x)$, the bounds on the integral for property 2 must be adjusted}
 
 \subsection{Mean and Variance}  % 6.1.3
-\nt{The rules for the means and variances are the same for both discrete and continouous random variables; the only difference is how the values are computed.}
+\nt{Rules}{The rules for the means and variances are the same for both discrete and continouous random variables; the only difference is how the values are computed.}
 \begin{align}
      & \text{Discrete:}   & E(X) & =\mu_X=\sum xp(x)                             & E(g(X)) & =\sum g(x)p(x)                            \\
      & \text{Continuous:} & E(X) & =\mu_X=\int_{-\infty}^{\infty} xp(x)\text{d}x & E(g(X)) & =\int_{-\infty}^{\infty}g(x)p(x)\text{d}x
@@ -46,7 +46,7 @@ The cumulative distribution function (cdf) is the probability that the random va
 \begin{equation}
     F(x)=P(X\leq x)=\int_{-\infty}^{s} f(x)ds
 \end{equation}
-\nt{The variable of integration is changed to be some dummy variable $s$, as the bounds of a definite integral can not be a function of the variable of integration.}\\
+\nt{}{The variable of integration is changed to be some dummy variable $s$, as the bounds of a definite integral can not be a function of the variable of integration.}
 To recap, we now have
 \begin{align}
     p(x) & = \text{probability mass function}        \\
@@ -60,7 +60,7 @@ For continuous distributions, percentiles are much simpler to compute. Given tha
     p=\int_{-\infty}^{x} f(x)ds
 \end{equation}
 Note that this integral is the same as the cdf. Thus if the cdf is already known, we can simply find when $F(x)=p$. Again, the $100p^{\text{th}}$ percentile is when $100p$ percent of the data is less than $p$, and the rest is above\\
-\nt{The median occurs when $p=0.5$. Hence,}
+\nt{}{The median occurs when $p=0.5$. Hence,}
 \begin{equation}
     p=0.5=\int_{-\infty}^{\mu'} f(x)\mathrm{d}x=F(\mu')\text{ where } \mu'=\tilde{\mu}
 \end{equation}
@@ -80,7 +80,7 @@ curve is concave down when $x$ is $\mu\pm\sigma$ otherwise concave down
 \subsection{Standardization}  % 6.2.2
 empirical rule - 68\% of data within 1 stdev; 95 within 2; 99.7 within 3 \\
 standard normal distribution: $\mu=0; \sigma=1$\\
-\dfn{$z=f(z)$}\\
+\dfn{$z$}{$z=f(z)$}
 probability of certain outcome $x$ $=$ cdf of $z$; values are in z table \\
 
 \subsection{Using the z-table}  % 6.2.3
@@ -95,7 +95,7 @@ normalize any given distribution to be standard normal with
 \end{equation}
 then $z$ is z-score; tells how many standard deviations $x$ is from the mean $\mu$
 \subsection{Percentiles}  % 6.2.5
-\ex{89th percentile = $P(Z<b)=0.89$} \\
+\ex{}{89th percentile = $P(Z<b)=0.89$}
 must find corresponding value in z-table (don't interpolate; use printed value) \\
 now un-normalize z score by
 \begin{equation}
@@ -145,7 +145,7 @@ Mean is\begin{equation}
 standard deviation \begin{equation}
     \sigma_X=\frac{b-a}{\sqrt{12}}
 \end{equation}
-\ex{200 boxes an hour; distribution is uniform from 18.2 to 20.4 (nearest tenth)}
+\ex{}{200 boxes an hour; distribution is uniform from 18.2 to 20.4 (nearest tenth)}
 \begin{enumerate}
     \item what is the probability that the package weighs less than 20 lbs? \begin{equation}
         P(X<20)=\int_{18.2}^{20}\frac{1}{20.4-18.2}dx=\int_{18.2}^{20}\frac{1}{2.2}dx=0.818

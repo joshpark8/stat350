@@ -1,0 +1,11 @@
+	One Sample t-test
+
+data:  df$diff
+t = 4.5484, df = 781, p-value = 3.132e-06
+alternative hypothesis: true mean is greater than 0
+95 percent confidence interval:
+ 0.11749     Inf
+sample estimates:
+mean of x
+0.1841722
+
